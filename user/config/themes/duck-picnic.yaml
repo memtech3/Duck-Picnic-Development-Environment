@@ -2,3 +2,19 @@ enabled: true
 dropdown:
   enabled: true
 custom_logo: {  }
+footer:
+  content: "**Lorem ipsum dolor** sit amet, consectetur adipiscing elit. Proin auctor fermentum erat vitae lacinia. <br>\nSed ut sollicitudin ipsum, sed euismod nisl. Ut porttitor molestie leo, id fringilla felis accumsan at. <br>\nEmail: [info@example.com](mailto:info@example.com)\n\nelementum, convallis ac justo. In [pharetra](#) ipsum ac risus blandit malesuada. _Maecenas aliquet magna non elit condimentum interdum._"
+  socialMediaIcons:
+    -
+      icon: 'fa fa-arrows'
+      colorpicker: null
+      imageicon: null
+      imageurlicon: null
+      url: null
+  largeIcons:
+    -
+      icon: 'fa fa-unlock'
+      colorpicker: null
+      imageicon: null
+      imageurlicon: null
+      url: null
