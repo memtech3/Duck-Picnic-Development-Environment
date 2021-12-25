@@ -3,7 +3,7 @@ dropdown:
   enabled: true
 custom_logo: {  }
 footer:
-  content: "**Lorem ipsum dolor** sit amet, consectetur adipiscing elit. Proin auctor fermentum erat vitae lacinia. <br>\nSed ut sollicitudin ipsum, sed euismod nisl. Ut porttitor molestie leo, id fringilla felis accumsan at. <br>\nEmail: [info@example.com](mailto:info@example.com)\n\nelementum, convallis ac justo. In [pharetra](#) ipsum ac risus blandit malesuada. _Maecenas aliquet magna non elit condimentum interdum._"
+  content: "**Contoso** is a made up organization created by Microsoft to use for product demos .<br>\nThe content and artwork on this website is sample content curated to test the capabilities of this theme<br>\nEmail: [info@example.com](mailto:info@example.com)\nAddress: Contoso, Inc PO Box 12345 Scranton, PA 12345<br>\n\n**IMPORTANT MESSAGE: _The contents of this message are supposed to be important, please read them._**"
   socialMediaIcons:
     -
       icon: 'fa fa-arrows'
