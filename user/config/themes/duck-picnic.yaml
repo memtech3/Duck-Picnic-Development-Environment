@@ -1,7 +1,12 @@
 enabled: true
 dropdown:
   enabled: true
-custom_logo: {  }
+custom_logo:
+  user/images/image/logo.png:
+    name: logo.png
+    type: image/png
+    size: 8714
+    path: user/images/image/logo.png
 footer:
   content: "**Contoso** is a made up organization created by Microsoft to use for product demos .<br>\nThe content and artwork on this website is sample content curated to test the capabilities of this theme<br>\nEmail: [info@example.com](mailto:info@example.com)\nAddress: Contoso, Inc PO Box 12345 Scranton, PA 12345<br>\n\n**IMPORTANT MESSAGE: _The contents of this message are supposed to be important, please read them._**"
   socialMediaIcons:
