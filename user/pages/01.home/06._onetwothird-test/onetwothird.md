@@ -2,21 +2,17 @@
 title: 'onetwothird test'
 onetwothirds:
     -
-        icon: null
-        colorpicker: null
-        imageicon: /images/unnamed.jpg
-        imageurlicon: null
-        header: null
+        icon:
+            icon: 'fa fa-home'
+        header: Test
         text: 'test test terst'
-        url: null
+        url: ''
     -
-        icon: 'fa fa-clock-o'
-        colorpicker: null
-        imageicon: null
-        imageurlicon: null
-        header: null
-        text: null
-        url: null
+        icon:
+            image: /images/unnamed.jpg
+        header: Test
+        text: Test
+        url: ''
 image: {  }
 ---
 
