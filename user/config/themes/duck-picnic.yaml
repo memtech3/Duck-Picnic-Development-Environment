@@ -48,3 +48,11 @@ footer:
       imageicon: null
       imageurlicon: null
       url: null
+  smallicons:
+    -
+      smallicon:
+        icon: 'fa fa-clock-o'
+  largeicons:
+    -
+      largeicon:
+        icon: 'fa fa-road'
