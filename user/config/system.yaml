@@ -120,7 +120,7 @@ cache:
     server: null
     port: null
 twig:
-  cache: true
+  cache: false
   debug: true
   auto_reload: true
   autoescape: true
@@ -190,6 +190,7 @@ session:
   name: grav-site
   uniqueness: path
   secure: false
+  secure_https: true
   httponly: true
   samesite: Lax
   split: true
@@ -213,13 +214,13 @@ accounts:
 flex:
   cache:
     index:
-      enabled: true
+      enabled: false
       lifetime: 60
     object:
-      enabled: true
+      enabled: false
       lifetime: 600
     render:
-      enabled: true
+      enabled: false
       lifetime: 600
 strict_mode:
   yaml_compat: false
