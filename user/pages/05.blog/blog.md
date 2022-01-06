@@ -9,5 +9,12 @@ content:
         dir: desc
     pagination: true
     url_taxonomy_filters: true
+hero:
+    content:
+        imageupload: {  }
+    appearance:
+        height: 50
+        backgroundcolor: '#f9d537'
+        opacity: 50
 ---
 
