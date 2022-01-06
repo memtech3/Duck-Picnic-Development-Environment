@@ -1,6 +1,10 @@
 ---
 title: 'Post 1'
 media_order: image.jpeg
+taxonomy:
+    category:
+        - test
+        - test2
 body_classes: ''
 order_by: ''
 order_manual: ''
