@@ -16,6 +16,8 @@ use Grav\Common\Data\Data;
  * Class implements media object interface.
  *
  * @property string $type
+ * @property string $filename
+ * @property string $filepath
  */
 interface MediaObjectInterface extends \Grav\Framework\Media\Interfaces\MediaObjectInterface, ArrayAccess
 {
@@ -62,6 +64,14 @@ interface MediaObjectInterface extends \Grav\Framework\Media\Interfaces\MediaObj
      * @param MediaObjectInterface $alternative
      */
     public function addAlternative($ratio, MediaObjectInterface $alternative);
+
+    /**
+     * Get list of image alternatives. Includes the current media image as well.
+     *
+     * @param bool $withDerived If true, include generated images as well. If false, only return existing files.
+     * @return array
+     */
+    public function getAlternatives(bool $withDerived = true): array;
 
     /**
      * Return string representation of the object (html).

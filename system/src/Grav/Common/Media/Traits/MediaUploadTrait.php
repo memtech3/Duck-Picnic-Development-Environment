@@ -100,6 +100,10 @@ trait MediaUploadTrait
             'size' => $uploadedFile->getSize(),
         ];
 
+        if ($uploadedFile instanceof FormFlashFile) {
+            $uploadedFile->checkXss();
+        }
+
         return $this->checkFileMetadata($metadata, $filename, $settings);
     }
 
@@ -132,9 +136,9 @@ trait MediaUploadTrait
             if ($folder === '.') {
                 $folder = '';
             }
-            $filename = basename($filename);
+            $filename = Utils::basename($filename);
         }
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $extension = Utils::pathinfo($filename, PATHINFO_EXTENSION);
 
         // Decide which filename to use.
         if ($settings['random_name']) {
@@ -573,6 +577,8 @@ trait MediaUploadTrait
                 }
             }
         }
+
+        $this->hide($filename);
     }
 
     /**

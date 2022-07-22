@@ -62,6 +62,7 @@ use function call_user_func_array;
 use function function_exists;
 use function get_class;
 use function in_array;
+use function is_array;
 use function is_callable;
 use function is_int;
 use function is_string;
@@ -341,6 +342,23 @@ class Grav extends Container
     }
 
     /**
+     * Clean any output buffers. Useful when exiting from the application.
+     *
+     * Please use $grav->close() and $grav->redirect() instead of calling this one!
+     *
+     * @return void
+     */
+    public function cleanOutputBuffers(): void
+    {
+        // Make sure nothing extra gets written to the response.
+        while (ob_get_level()) {
+            ob_end_clean();
+        }
+        // Work around PHP bug #8218 (8.0.17 & 8.1.4).
+        header_remove('Content-Encoding');
+    }
+
+    /**
      * Terminates Grav request with a response.
      *
      * Please use this method instead of calling `die();` or `exit();`. Note that you need to create a response object.
@@ -350,10 +368,7 @@ class Grav extends Container
      */
     public function close(ResponseInterface $response): void
     {
-        // Make sure nothing extra gets written to the response.
-        while (ob_get_level()) {
-            ob_end_clean();
-        }
+        $this->cleanOutputBuffers();
 
         // Close the session.
         if (isset($this['session'])) {
@@ -399,7 +414,7 @@ class Grav extends Container
     /**
      * @param ResponseInterface $response
      * @return never-return
-     * @deprecated 1.7 Do not use
+     * @deprecated 1.7 Use $grav->close() instead.
      */
     public function exit(ResponseInterface $response): void
     {
@@ -729,7 +744,10 @@ class Grav extends Container
      */
     public function fallbackUrl($path)
     {
-        $this->fireEvent('onPageFallBackUrl');
+        $path_parts = Utils::pathinfo($path);
+        if (!is_array($path_parts)) {
+            return false;
+        }
 
         /** @var Uri $uri */
         $uri = $this['uri'];
@@ -737,9 +755,27 @@ class Grav extends Container
         /** @var Config $config */
         $config = $this['config'];
 
+        /** @var Pages $pages */
+        $pages = $this['pages'];
+        $page = $pages->find($path_parts['dirname'], true);
+
         $uri_extension = strtolower($uri->extension() ?? '');
-        $fallback_types = $config->get('system.media.allowed_fallback_types', null);
+        $fallback_types = $config->get('system.media.allowed_fallback_types');
         $supported_types = $config->get('media.types');
+
+        $parsed_url = parse_url(rawurldecode($uri->basename()));
+        $media_file = $parsed_url['path'];
+
+        $event = new Event([
+            'uri' => $uri,
+            'page' => &$page,
+            'filename' => &$media_file,
+            'extension' => $uri_extension,
+            'allowed_fallback_types' => &$fallback_types,
+            'media_types' => &$supported_types
+        ]);
+
+        $this->fireEvent('onPageFallBackUrl', $event);
 
         // Check whitelist first, then ensure extension is a valid media type
         if (!empty($fallback_types) && !in_array($uri_extension, $fallback_types, true)) {
@@ -749,16 +785,8 @@ class Grav extends Container
             return false;
         }
 
-        $path_parts = pathinfo($path);
-
-        /** @var Pages $pages */
-        $pages = $this['pages'];
-        $page = $pages->find($path_parts['dirname'], true);
-
         if ($page) {
             $media = $page->media()->all();
-            $parsed_url = parse_url(rawurldecode($uri->basename()));
-            $media_file = $parsed_url['path'];
 
             // if this is a media object, try actions first
             if (isset($media[$media_file])) {
