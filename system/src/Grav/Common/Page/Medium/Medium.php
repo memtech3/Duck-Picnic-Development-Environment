@@ -23,6 +23,8 @@ use Grav\Common\Media\Traits\MediaObjectTrait;
  * @package Grav\Common\Page\Medium
  *
  * @property string $filepath
+ * @property string $filename
+ * @property string $basename
  * @property string $mime
  * @property int $size
  * @property int $modified
@@ -104,6 +106,7 @@ class Medium extends Data implements RenderableInterface, MediaFileInterface
 
     /**
      * @param string $thumb
+     * @return Medium|null
      */
     protected function createThumbnail($thumb)
     {
