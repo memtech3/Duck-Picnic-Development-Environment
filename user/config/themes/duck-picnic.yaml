@@ -52,7 +52,33 @@ footer:
     -
       smallicon:
         icon: 'fa fa-clock-o'
+        color: '#ffffff'
+        imageurl: null
+        header: null
+        smalltext: null
+        link: null
   largeicons:
     -
       largeicon:
-        icon: 'fa fa-road'
+        icon: 'fa fa-lock'
+        color: null
+        imageurl: null
+        header: null
+        smalltext: Lock
+        link: paclock.com
+    -
+      largeicon:
+        icon: null
+        color: null
+        imageurl: 'https://i.pinimg.com/474x/53/1b/fc/531bfc96347ec3418a075e5b93760b68.jpg'
+        header: null
+        smalltext: null
+        link: null
+    -
+      largeicon:
+        icon: 'fa fa-list'
+        color: null
+        imageurl: null
+        header: null
+        smalltext: null
+        link: null
