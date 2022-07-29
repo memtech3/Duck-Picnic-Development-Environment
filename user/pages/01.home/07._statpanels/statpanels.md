@@ -5,6 +5,11 @@ statpanels:
     -
         icon:
             icon: 'fa fa-th-list'
+            color: null
+            imageurl: null
+            header: null
+            smalltext: null
+            link: null
     -
         icon:
             icon: 'fa fa-random'
@@ -36,7 +41,7 @@ statpanels:
             imageurl: null
             header: '1'
             smalltext: Value
-            link: null
+            link: micahguttman.com
     -
         icon:
             icon: 'fa fa-external-link'
