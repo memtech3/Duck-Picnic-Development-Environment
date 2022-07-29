@@ -41,5 +41,5 @@ Duck-Picnic-Development-Environment.
 
 ### Linux
 The development server built in to PHP has worked well for me on Ubuntu. In order to run grav you need to install ```php, php-curl, php-ctype, php-dom,
-php-gd, php-json, php mbstring, php-opnssl, php-session, php-simplexml, php-xml, php-zip```. Then you can run ```php -S localhost:8080 system/router.php```
+php-gd, php-json, php mbstring, php-opnssl, php-session, php-simplexml, php-xml, php-zip```. Then you can run ```php -S localhost:8080 system/router.php``` in your ```Duck-Picnic-Development-Environment``` folder
 to start the development server.
