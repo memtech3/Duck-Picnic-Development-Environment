@@ -1117,7 +1117,7 @@ form .form-display-wrapper table tr {
   border-bottom: 1px solid #f7f7f7;
 }
 .gpm > table > tbody > tr:hover {
-  background: white;
+  background: #f2f2f2;
 }
 .gpm .gpm-name {
   color: #99a2ad;
@@ -1791,6 +1791,9 @@ span.range-append {
 }
 .jqCron-container.disable .jqCron-selector-title {
   background: #ffffff !important;
+}
+.hint-icon {
+  color: #06A599;
 }
 #admin-main .admin-block .report-output .toast .btn {
   color: #ffffff;

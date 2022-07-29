@@ -274,7 +274,7 @@ This we be removed from the page content and made available in Twig variables so
 
 <div id="article">
     <div class="left">
-        {{ page.content }}
+        {{ page.content|raw }}
     </div>
     <div class="right">
         {{ shortcode.section.quote }}
@@ -565,3 +565,11 @@ $this->shortcode->getRawHandlers()->add('prism', function(ProcessedShortcode $sc
 ```
 
 The difference here is it uses `getRawHandlers()` to ensure the handler is processed to the content in the _raw_ state.
+
+## Display All Shortcodes
+
+You can now display all available shortcodes by using the CLI command:
+
+```shell
+bin/plugin shortcode-core display
+```
