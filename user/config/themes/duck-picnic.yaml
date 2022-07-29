@@ -52,7 +52,7 @@ footer:
     -
       smallicon:
         icon: 'fa fa-clock-o'
-        color: '#ffffff'
+        color: '#ffa600'
         imageurl: null
         header: null
         smalltext: null
