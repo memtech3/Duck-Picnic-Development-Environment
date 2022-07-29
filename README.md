@@ -32,7 +32,7 @@ For this project, the syntax would probably look like ```mklink /D Duck-Picnic-D
 
 #### Linux
 On Linux, the command for creating a symlink to a folder is ```ln -s <path to the file/folder to be linked> <path of the link to be created>```. 
-For this project, the syntax would probably look like ```ln -s duck-picnic Duck-Picnic-Development-Environment/user/themes``` if your 
+For this project, the syntax would probably look like ```ln -s ~Documents/GitHub/duck-picnic Duck-Picnic-Development-Environment/user/themes``` if your 
 ```terminal session``` is in your ```Github``` folder
 
 ### Setting Up/Running The Dev Server
